@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Lobster" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #000 url("https://cdn.cnn.com/cnnnext/dam/assets/170301154813-meguro-cherry-blossoms.jpg");
+  background-position: cover;
+}
+div {
+  height: 350px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: orange;
+  margin: 60px 0 0 0;
+}
+h2 {
+  font-family:'Pacifico', cursive;
+  text-align: center;
+  color: white;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(83, 51, 237, 1);
+  font-family: 'Lobster', cursive;;
+  background: black;
+  background: linear-gradient(bottom, rgba(255,130,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,130,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(255,130,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+ul {
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+}
+li {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+<header>
+<ul>
+      <li><button onclick="Ramens()">Ramens</li>
+      <li><button onclick="Okonomiyaki()">Okonomiyaki</li>
+      <li><button onclick="Desserts()">Desserts</li>
+    </ul>    
+<h1>Hatsuhana</h1>
+<h2>A Taste of Japan</h2>
+ 
+<div id="Ramens"></div>
+
+<script>
+
+
+RamensImages = [
+  'url("https://i0.wp.com/www.mensoregirl.com/wp-content/uploads/2017/01/pic.jpg?resize=546%2C364")',
+  'url("https://assets.bonappetit.com/photos/57ae038653e63daf11a4e122/16:9/w_1000,c_limit/shoyu-ramen.jpg")',
+  'url("https://pixel.nymag.com/imgs/daily/grub/2014/12/10/mu-ramen/mu-ramen7.w710.h473.2x.jpg")',
+]
+
+OkonomiyakiImages = [
+  'url("https://cdn-images-1.medium.com/max/2000/1*CGgSXIbApVJo_f1opb8l5g.jpeg")',
+  'url("https://www.gfs.ca/sites/default/files/recipe-image/Classic-Okonomiyaki.jpg")',
+  'url("https://www.closetcooking.com/wp-content/uploads/2009/05/Okonomiyaki-1-500.jpg")',
+]
+
+DessertsImages = [
+  'url("https://overthebigmoon.com/wp-content/uploads/2015/06/dessert-sushi6.jpg")',
+  'url("https://cdn.trendhunterstatic.com/thumbs/waffle-breakfast-sushi-rolls.jpeg")',
+  'url("https://www.oyakata.com.pl/media/artykuly/38/Botchan-Dango-barwione-kluseczki.jpg")',
+]  
+
+RamensDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Naruto Style Miso Ramen <span class="price">$18</span><br /><small>Your favourite Naruto Style Miso Char Siu pork Ramen with extra  Meat and eggs. Made by our Chef\'\s from Akihabara, You will love it.  </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Shoyu Ramen <span class="price">$22</span><br /><small> Known for the special soup, this ramen is a delicacy. Not too bland nor too spicy, you can enjoy it with everyone. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Spicy Miso Ramen <span class="price">$10</span><br /><small> If you like spicy foods, this is it ! Made with spices hand chosen by our chef, mixed with sweet corn, it will leave a pleasent  after taste that will make you crave for more and more.</small></p></div>',
+]
+
+OkonomiyakiDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Hatsuhana Special Okonomiyaki <span class="price">$20</span><br /><small> Our special in Okonomiyaki, recomended by the Anime Man himself. It is made with your choice, whiche means you can add what you want on this dish to enjoy it the way you want.  </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> City style mayo Okonomiyaki <span class="price">$25</span><br /><small>Pork Okonomiyaki with a Japanese city life aesthetic dressed in our special mayo sauce. Also if you know your stuff, you know that Osaka is famous for Okonomiyaki. And this adds on a modern twist to it. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Countryside Okonomiyaki <span class="price">$15</span><br /><small> Made from our distinguished chef from Osaka with ingredients from the Japanese countryside. A treat the spice lovers. </small></p></div>',
+]
+
+DessertsDivs = [
+   '<div class="item" onclick=this.classList.toggle("show-description")><p> Over the Big Moon <span class="price">$18</span><br /><small> Especially popular with the teens, this sushi is the perfect dessert after a meal. Made from fruits and special bread, this gives it a soft texture.  </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Ice Cream Waffle Sushi <span class="price">$22</span><br /><small> If you like something cold after a meal, this blend of sushi and vanilla ice cream is for you. The waffle also gives a crunchy feeling that complements the softness of the inner elemnts.</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Dangos <span class="price">$8</span><br /><small> "Dango Dango Dango Dango Dango Daikazoku". This is a famous dango sng from the anime Clannad. It means the big dango family. Honestly, if you like Japanese cuisine, you have to eat dangos. They are sweet, healthy and looks so cute. Our dango is especially made from our own secret recipe which gives a fresh new sweetness. </small></p></div>',
+]  
+
+   
+   
+function Ramens() {
+  
+  //alert("Naruto has joined the chat")
+  Noodles = document.getElementById("Ramens")
+  Noodles.innerHTML = ''
+	Noodles.innerHTML += RamensDivs[0]
+  Noodles.innerHTML += RamensDivs[1]
+  Noodles.innerHTML += RamensDivs[2]
+  items = document.getElementsByClassName("item")
+    items[0].style.background = RamensImages[0]  
+    items[1].style.background = RamensImages[1]
+    items[1].style.backgroundSize = '100% 93%'
+    items[2].style.background = RamensImages[2]
+    items[2].style.backgroundSize = '100% 120%'
+
+}  
+function Okonomiyaki() {
+  //alert("I see you're a person of culture")
+  Osaka = document.getElementById("Ramens")
+  Osaka.innerHTML = ''
+	Osaka.innerHTML += OkonomiyakiDivs[0]
+  Osaka.innerHTML += OkonomiyakiDivs[1]
+  Osaka.innerHTML += OkonomiyakiDivs[2]
+  items = document.getElementsByClassName("item")
+  for (i=0; i<3; i=i+1) {
+		items[i].style.background = OkonomiyakiImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+  }
+} 
+function Desserts() {
+  //alert("Aww I see you're a sweet person !")
+  Sushi = document.getElementById("Ramens")
+  Sushi.innerHTML = ''
+	Sushi.innerHTML += DessertsDivs[0]
+  Sushi.innerHTML += DessertsDivs[1]
+  Sushi.innerHTML += DessertsDivs[2]
+  items = document.getElementsByClassName("item")
+    items[0].style.background = DessertsImages[0]
+    items[1].style.background = DessertsImages[1]
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.background = DessertsImages[2]
+    items[2].style.backgroundSize = '100% 120%'
+}  
+</script>
+
+</body>
