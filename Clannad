@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<head>
+  <title>Clannad Reasons</title>
+  <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      background: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Desktop-Download-Clannad-Images-PIC-WPC006125.jpg") no-repeat;
+      background-size: cover;
+      background-position: 0px 0px;
+      color: #FFA62F;
+      font-family: 'Merienda', cursive;
+    }
+    p {
+      font-size: 30px;
+      width: 30%;
+      margin: 0 auto;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="submit"] {
+      background: pink;
+      color: white;
+    }
+    img{
+      width: 230px;
+      border-radius: 200px;
+      border: 3px solid white;
+    }  
+  </style>
+</head>
+<body id="Scenes">
+  <img src="https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/tomoya-okazaki-clannad-9.26.jpg" id="Town">
+  <p id ="lily"></p>
+  <input id="item">
+  <input type="submit" onclick="submit()" id="progress">
+  
+<script>
+
+Page = document.getElementById("lily")
+prompts = {
+  Login:"You are Tomoya and this is Clannad.Now to move the story, you have to choose between 'Nagisa' or 'Tomoyo' and write your choice in the box.",
+  Tomoyo:"You have chosen to interact with Tomoyo and her story. Write 'Sakura' to move forward.",
+  Nagisa:"You have chosen to interact with Nagisa and learn her story. Type 'Hill' to continue.",
+  Nagisa2:"Nagisa is at the foot of a hill.She says that everything she likes eventually goes away. Tomoya then said,'Then why don't you find new things to like ?' Nagisa was startled. Now type 'Anpan' to continue.",
+  Nagisa3:"After their meeting, Tomoya learns that Nagisa hasn't been to school for a long time because of an illness. So Tomoya starts helping her to get back on track now. Now type 'Theatre' to continue.",
+  Nagisa4:"By helping her, Tomoya begins to change as well and starts to change his life for the better. And in between this, he falls in love with her. Type 'confess' or 'wait'",
+  Nagisa5:"After helping Nagisa on a big test, Tomoya confesses to Nagisa. Nagisa accepts his feelings and they start their new story together. Now choose an option that will decide the outcome: type 'Yes' or 'No'",
+  Nagisa_yes:"Nagisa and Tomoya get married and lived happily with their daughter after this.The end.",
+  Nagisa_no:"Tomoya and Nagisa got married and was living happily.Then Nagisa became pregnant and was expecting a daughter. But her illness came back. In the end she died giving birth.Now shocked Tomoya, promised Nagisa that he would take care of their daughter and Tomoya succeeded. He became a father who took care of his daughter and kept his promise. The end.",
+  Nagisa5_p2:"Tomoya decides to wait for the right time to confess his feelings to Nagisa. But then Nagisa's family decides to move away suddenly. Now choose one to progress: type 'Dango' or 'Ushio'.",
+  Nagisa_dango:"You follow Nagisa and eventually meet her again. This time you confess and get married after a few years.Then their daughter was born and they lived happily ever after. The end.",
+  Nagisa_ushio:"You gave up on finding her. In the end you devoted yourself to your town and decided to live alone until she comes back. The end.",
+  Tomoyo2:"Tomoya meets Tomoyo after she tranfers to his school. Tomoya's friend teases her, but Tomoyo saw Tomoya and had an interest in him. So they became friends.Now type 'Fight'.",
+  Tomoyo3:"Tomoyo interacts with Tomoya and starts helping him get his life together. Now type 'Train'.",
+  Tomoyo4:"After a month of interacting with each other, Tomoyo and Tomoya started having feelings for each other. Type 'Confess' or 'Wait'.",
+  Tomoyo5:"Eventually, after many tough times, Tomoyo and Tomoya confesses to each other and embrace their feelings. But after a while, Tomoyo got the chance to go to another city for higher education. What do you do: type 'Try' or 'Stay'.", 
+  Tomoyo_stay:"Tomoyo moved on but you stayed behind. Eventually your communication with her broke off and you two went your seperate ways. The end.",
+  Tomoyo_try:"So Tomoya started to work hard after hearing that. In the end, you also got a chance in a college in the city Tomoyo was moving to. After college, they got married and lived happily ever after. The end.",
+  Tomoyo_wait:"You wait too long. Tomoyo was moving forward but you fell behind and your relationship became strained. Now choose : type 'Work' or 'Play'.",
+  Tomoyo_work:"Tomoya started working extra hard. Eventually he caught up with her and made up for the long wait and finally confessed. She accepted and got married a few years later. They lived happily ever after.The end.",
+  Tomoyo_play:"Tomoya didn't take the matter seriously and then one day, Tomoyo broke up with Tomoya. Then after some time, Tomoya met Nagisa, and he found hope for a another chance at love. To be continued....",
+}  
+Clannad = document.getElementById("item")
+function submit() {
+  if (Clannad.value =="Tomoyo") {
+    lily.innerHTML = prompts.Tomoyo
+    Clannad.value = ""
+    Events.src = "https://cdn.myanimelist.net/images/characters/2/34293.jpg"
+  }
+  if (Clannad.value =="Sakura") {
+    lily.innerHTML = prompts.Tomoyo2
+    Clannad.value = ""
+    pin.style.background = "url(https://lh5.googleusercontent.com/-HtAppvGYDoU/UEpUY1ofs4I/AAAAAAAAQoc/1bcc2tFHTtk/s640/VLC-00002.png ) no-repeat"
+	pin.style.backgroundSize = "cover"
+  }
+  if (Clannad.value =="Fight") {
+    lily.innerHTML = prompts.Tomoyo3
+    Clannad.value = ""
+      pin.style.background = 
+	"url(https://lh4.googleusercontent.com/-SsC0xQh0kkM/UEpUYp-ztaI/AAAAAAAAQoY/aoMvIKQs2Sg/s640/VLC-00001.png) no-repeat"
+  	pin.style.backgroundSize = "cover"  
+  }
+  if (Clannad.value =="Train") {
+    lily.innerHTML = prompts.Tomoyo4
+    Clannad.value = ""
+    pin.style.background = 
+	 "url(https://i.redd.it/tzhemc212j511.jpg) no-repeat"
+    pin.style.backgroundSize = "cover"  
+  }
+  if (Clannad.value =="Confess") {
+    lily.innerHTML = prompts.Tomoyo5
+    Clannad.value = ""
+    pin.style.background = 
+	"url(https://vignette.wikia.nocookie.net/c__/images/e/ee/Another_World_-_Tomoyo_Chapter_Shot.png/revision/latest?cb=20140122145235&path-prefix=clannad) no-repeat"
+    pin.style.backgroundSize = "cover"    
+  }
+  if (Clannad.value =="Try") {
+    lily.innerHTML = prompts.Tomoyo_try
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Stay") {
+    lily.innerHTML = prompts.Tomoyo_stay
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Wait") {
+    lily.innerHTML = prompts.Tomoyo_wait
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Work") {
+    lily.innerHTML = prompts.Tomoyo_work
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Play") {
+    lily.innerHTML = prompts.Tomoyo_play
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Nagisa") {
+    lily.innerHTML = prompts.Nagisa
+    Clannad.value = ""
+    Events.src = "https://cdn.myanimelist.net/images/characters/3/300961.jpg"
+  }
+  if (Clannad.value =="Hill") {
+    lily.innerHTML = prompts.Nagisa2
+    Clannad.value = ""
+      pin.style.background = 
+	  "url(https://www.chainimage.com/images/clannad-after-story-anime-reviews-anime-planet.png) no-repeat"
+  	pin.style.backgroundSize = "cover"
+  }
+  if (Clannad.value =="Anpan") {
+    lily.innerHTML = prompts.Nagisa3
+    Clannad.value = ""
+	  
+  }
+  if (Clannad.value =="Theatre") {
+    lily.innerHTML = prompts.Nagisa4
+    Clannad.value = ""
+  }
+  if (Clannad.value =="confess") {
+    lily.innerHTML = prompts.Nagisa5
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Yes") {
+    lily.innerHTML = prompts.Nagisa_yes
+    Clannad.value = ""
+  }
+  if (Clannad.value =="No") {
+    lily.innerHTML = prompts.Nagisa_no
+    Clannad.value = ""
+  }
+  if (Clannad.value =="wait") {
+    lily.innerHTML = prompts.Nagisa5_p2
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Dango") {
+    lily.innerHTML = prompts.Nagisa_dango
+    Clannad.value = ""
+  }
+  if (Clannad.value =="Ushio") {
+    lily.innerHTML = prompts.Nagisa_ushio
+    Clannad.value = ""
+  }
+}
+
+
+Clannad.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    progress.click()
+  }
+}) 
+
+Events = document.getElementById("Town")
+
+pin = document.getElementById("Scenes")
+
+Page.innerHTML = prompts.Login
+</script>  
+</body>
