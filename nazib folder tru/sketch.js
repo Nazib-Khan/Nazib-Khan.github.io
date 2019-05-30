@@ -48,7 +48,7 @@ function setup() {
   level = 1
   blueScore=11
   purple=4
-  time=180
+  time=120
 }
 
 function draw() {
