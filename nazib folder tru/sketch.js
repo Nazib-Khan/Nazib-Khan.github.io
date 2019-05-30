@@ -144,7 +144,7 @@ function restart() {
     scoreboard[name] = points
   }
   alert("scoreboard:"+JSON.stringify(scoreboard,null,1))
-  time=180
+  time=120
   points=0
   loop()
   park.innerHTML=""
