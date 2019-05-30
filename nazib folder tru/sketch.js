@@ -1,3 +1,16 @@
+// Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDLGh7gHQ2HbJkPcJWKnYzPMe59_tDhlYo",
+    authDomain: "circle-scoreboard.firebaseapp.com",
+    databaseURL: "https://circle-scoreboard.firebaseio.com",
+    projectId: "circle-scoreboard",
+    storageBucket: "circle-scoreboard.appspot.com",
+    messagingSenderId: "859343718392",
+    appId: "1:859343718392:web:46420690778c80a3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+let database = firebase.database()  
 let scoreboard = { }
 let Jimin = document.getElementById("park")
 let enemyRadius
@@ -45,26 +58,26 @@ function draw() {
   circle(x*s,y,40*s);
   fill(246, 34, 23);
   circle(e*s,f,25*s)
-  x=x+4*direction_h
+  x=x+8*direction_h
   y=y+blueScore*direction_v  
   text("Points:"+points,50,50)
   text("Time:"+time.toFixed(1),50,75)
   time = time-.02
   
   if(keyIsDown(LEFT_ARROW)){
-    e = e-9
+    e = e-10
   }
   
   if(keyIsDown(RIGHT_ARROW)){
-    e = e+9
+    e = e+10
   }
   
   if(keyIsDown(UP_ARROW)){
-    f = f-9
+    f = f-10
   }
   
   if(keyIsDown(DOWN_ARROW)){
-    f = f+9
+    f = f+10
   }
   if ( x*s > width || x*s<0) {
     direction_h = direction_h*-1
@@ -79,8 +92,8 @@ function draw() {
   for(i=0; i<purple; i=i+1){
     fill(128, 0, 197);
     circle(j[i]*s,o[i],enemyRadius*s);
-    j[i]=j[i]+10*direction_h2[i]
-    o[i]=o[i]-14*direction_v2[i]
+    j[i]=j[i]+14*direction_h2[i]
+    o[i]=o[i]-20*direction_v2[i]
 
     if ( j[i]*s > width || j[i]*s<0) {
       direction_h2[i] = direction_h2[i]*-1
@@ -89,7 +102,7 @@ function draw() {
       direction_v2[i] = direction_v2[i]*-1
     }
     if(dist(j[i]*s,o[i],e*s,f)<enemyRadius*s+25*s){
-      points=points-1
+      points=points-4
     }
     if (points > 100 && level == 1) {
       enemyRadius = enemyRadius + 10
@@ -118,7 +131,7 @@ function draw() {
     textSize(30)
 }
   else{
-    park.innerHTML= "Name? <input id=Mantis><button onclick='restart()'>Restart</button>"
+    park.innerHTML= "Name? <input id=Mantis><button onclick='restart()'>Restart</button><button onclick=generate_alltime_leaderboard()>'All-time leaderboard'</button>"
     noLoop()
   }
 
@@ -126,6 +139,7 @@ function draw() {
 function restart() {
   let Mantis = document.getElementById("Mantis")
   name = Mantis.value
+  database.ref(name).set(points)
   if (name !="") {
     scoreboard[name] = points
   }
@@ -136,13 +150,14 @@ function restart() {
   park.innerHTML=""
   generate_leaderboard()
 }
+
 function generate_leaderboard() {
   scores = Object.values(scoreboard)
   names = Object.keys(scoreboard)
   
   if (scores.length >= 3) {
     let leaderboard = { }
-    for (i=0; i< 3; i=i+1) {
+    for (i=0; i< 6; i=i+1) {
       max = Math.max(...scores)
       index = scores.indexOf(max)
       leaderboard[names[index]] = max
@@ -152,3 +167,17 @@ function generate_leaderboard() {
     alert("Leaderboard: " + JSON.stringify(leaderboard,null,1))
   }
 }
+
+function generate_alltime_leaderboard() {
+	let alltime_leaderboard = { }
+	database.ref().orderByValue().limitToLast(3).on("value", function(snapshot) {
+		snapshot.forEach(function(data) {
+		alltime_leaderboard[data.key] = data.val()
+		});
+    	});
+	if (Object.values(alltime_leaderboard).length > 0) {
+	  alert("All-time leaderboard: " + JSON.stringify(alltime_leaderboard,null,1))
+    	}
+}
+
+generate_alltime_leaderboard()
