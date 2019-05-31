@@ -124,8 +124,17 @@ function draw() {
       level = 5
       j.push.apply(j,[400,299,200])
       o.push.apply(o,[100,400,399])
-    } 
+    }
+    if (touches.length == 0)   {
 
+	controls for main character
+
+    }
+    else { 
+		e = touches[0].x
+		f = touches[0].y
+     }
+	  
   } 
     
     textSize(30)
