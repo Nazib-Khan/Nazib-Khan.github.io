@@ -64,6 +64,8 @@ function draw() {
   text("Time:"+time.toFixed(1),50,75)
   time = time-.02
   
+  
+  if (touches.length == 0) {	  
   if(keyIsDown(LEFT_ARROW)){
     e = e-10
   }
@@ -79,6 +81,13 @@ function draw() {
   if(keyIsDown(DOWN_ARROW)){
     f = f+10
   }
+ }
+	  
+else { 
+	e = touches[0].x
+	f = touches[0].y
+}
+	  
   if ( x*s > width || x*s<0) {
     direction_h = direction_h*-1
   }
@@ -125,15 +134,6 @@ function draw() {
       j.push.apply(j,[400,299,200])
       o.push.apply(o,[100,400,399])
     }
-    if (touches.length == 0)   {
-
-    }
-    else { 
-		e = touches[0].x
-		f = touches[0].y
-     }
-	  
-  } 
     
     textSize(30)
 }
