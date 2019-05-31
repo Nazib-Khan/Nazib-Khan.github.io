@@ -127,8 +127,6 @@ function draw() {
     }
     if (touches.length == 0)   {
 
-	controls for main character
-
     }
     else { 
 		e = touches[0].x
