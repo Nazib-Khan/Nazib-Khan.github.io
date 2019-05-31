@@ -113,6 +113,7 @@ else {
     if(dist(j[i]*s,o[i],e*s,f)<enemyRadius*s+25*s){
       points=points-4
     }
+  }
     if (points > 100 && level == 1) {
       enemyRadius = enemyRadius + 10
       level = 2
