@@ -153,6 +153,7 @@ function restart() {
   alert("scoreboard:"+JSON.stringify(scoreboard,null,1))
   time=120
   points=0
+  level=1
   loop()
   park.innerHTML=""
   generate_leaderboard()
