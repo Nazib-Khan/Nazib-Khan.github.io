@@ -34,7 +34,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   s = width/945
   x = 400
-  y = 300
+  y = 400
   e = 200
   f = 300
   j = [100,50,300,120]
