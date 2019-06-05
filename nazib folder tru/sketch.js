@@ -33,12 +33,12 @@ let f
 function setup() {
   createCanvas(windowWidth, windowHeight);
   s = width/945
-  x = 400
-  y = 400
+  x = 200
+  y = 200
   e = 200
   f = 300
-  j = [100,50,300,120]
-  o = [390,200,80,18]
+  j = [100,50,150,120]
+  o = [220,200,80,18]
   direction_h=1
   direction_v=1
   direction_h2=[1,1,1,1]
